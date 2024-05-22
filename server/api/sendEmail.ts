@@ -9,7 +9,7 @@ export default defineEventHandler(async (event: H3Event) => {
     const body = (await readBody(event)) as ContactEmail
     const { email, subject, message, phone, fullname } = body
     return await resend.emails.send({
-      from: 'VZ Portfolio <vazellweg@gmail.com>',
+      from: 'VZ Portfolio <no-reply@zellweger.dev>',
       to: ['vazellweg@gmail.com'],
       subject: 'New Message from Victor\'s Portfolio Contact Form',
       html: `
