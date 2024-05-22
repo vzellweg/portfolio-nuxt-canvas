@@ -48,7 +48,7 @@ useHead({
 
 useSeoMeta({
   description: () => t('global.app_description'),
-  author: 'Hugo Richard',
+  author: 'Victor Zellweger',
   ogType: 'website',
   ogTitle: appConfig.appName,
   ogDescription: () => t('global.app_description'),
