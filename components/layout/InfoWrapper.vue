@@ -19,7 +19,8 @@ defineProps({
       v-if="page === 'contact'"
       class="my-3 flex justify-center"
     >
-      <SettingsAvailability background />
+      <!-- Omit availability announcement -->
+      <!-- <SettingsAvailability background /> -->
     </div>
     <Divider class="mb-8 mt-2" />
     <slot />

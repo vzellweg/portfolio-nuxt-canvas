@@ -40,12 +40,14 @@ defineOgImage({ url: appConfig.openGraphImage, width: 1200, height: 630, alt: 'H
           </h2>
         </div>
 
-        <SettingsAvailability
+
+        <!-- Omit availability announcement -->
+        <!-- <SettingsAvailability
           background
           class="mt-2"
           style="--stagger: 2"
           data-animate
-        />
+        /> -->
 
         <!-- social -->
         <HomeSocial
