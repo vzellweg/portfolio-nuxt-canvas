@@ -4,4 +4,11 @@
     "ghcr.io/lumenpink/devcontainer-features/bun:0": {}
   },
   "postCreateCommand": "bun install && bun install --upgrade",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot"
+      ]
+    }
+  },
 }
