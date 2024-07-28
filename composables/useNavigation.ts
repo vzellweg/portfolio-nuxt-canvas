@@ -20,11 +20,12 @@ export function getNavigation(where: Where): Record<string, Navigation> | [] {
           to: '/works',
           icon: 'i-lucide-briefcase',
         },
-        writing: {
-          name: 'Writing',
-          to: '/writing',
-          icon: 'i-lucide-library',
-        },
+        // Uncomment when I have some blog content to show
+        // writing: {
+        //   name: 'Writing',
+        //   to: '/writing',
+        //   icon: 'i-lucide-library',
+        // },
         about: {
           name: 'About',
           to: '/about',
