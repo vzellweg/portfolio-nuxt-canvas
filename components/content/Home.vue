@@ -38,8 +38,15 @@ defineOgImage({ url: appConfig.openGraphImage, width: 1200, height: 630, alt: 'H
           <h2 class="mx-auto mt-4 max-w-xl text-start text-lg antialiased text-white/60">
             <ContentSlot :use="$slots.hero_subtitle" />
           </h2>
+          <div
+            class="py-2"
+            @click="useRouter().push('/about')"
+          >
+            <span class="font-testimonial text-white-shadow cursor-pointer text-sm">
+              {{ $t("global.read_more_about_me") }}
+            </span>
+          </div>
         </div>
-
 
         <!-- Omit availability announcement -->
         <!-- <SettingsAvailability
