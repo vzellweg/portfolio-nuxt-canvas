@@ -35,7 +35,7 @@ defineOgImage({ url: appConfig.openGraphImage, width: 1200, height: 630, alt: 'H
           </h1>
 
           <!-- subtitle -->
-          <h2 class="mx-auto mt-4 max-w-xl text-center text-lg antialiased text-white/60">
+          <h2 class="mx-auto mt-4 max-w-xl text-start text-lg antialiased text-white/60">
             <ContentSlot :use="$slots.hero_subtitle" />
           </h2>
         </div>
