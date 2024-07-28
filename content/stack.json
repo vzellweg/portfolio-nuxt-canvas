@@ -44,9 +44,7 @@
       "name": "Lightroom",
       "link": "https://www.adobe.com/products/photoshop-lightroom.html",
       "logo": "SvgoLightroomColor"
-    }
-  ],
-  "items2": [
+    },
     {
       "name": "TailwindCSS",
       "link": "https://tailwindcss.com/",
