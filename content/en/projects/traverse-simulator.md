@@ -1,7 +1,6 @@
 ---
 name: Construction Surveying Simulator
 release: 2023
-# TODO: capture screenshot
 image: /projects/traverse-simulator.jpeg
 # no link
 # link
