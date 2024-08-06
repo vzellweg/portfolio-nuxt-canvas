@@ -21,13 +21,22 @@ const { data: projects } = await useAsyncData('projects', () => queryContent('/p
         :aria-label="'go to ' + project.name + ' project website'"
         :target="project.release === 'soon' ? '_self' : '_blank'"
       >
-        <span class="whitespace-nowrap">
-          {{ project.name }}
-        </span>
-        <div class="mx-2 h-[0.1px] w-full bg-muted" />
-        <span class="whitespace-nowrap text-muted">
-          {{ project.release === "soon" ? $t("global.soon") + "..." : project.release }}
-        </span>
+          <div class="flex grow flex-col">
+            <div class="flex grow items-center">
+              <span class="whitespace-nowrap">
+                {{ project.name }}
+              </span>
+              <div class="mx-2 h-[0.1px] w-full bg-muted" />
+              <span class="whitespace-nowrap text-muted">
+                {{ project.release === "soon" ? $t("global.soon") + "..." : project.release }}
+              </span>
+            </div>
+            <div class="flex text-muted ps-5 items-center">
+              <p class="whitespace-nowrap text-sm">{{project.role}}</p>
+              <div class="mx-2 w-full" />
+              <p class="whitespace-nowrap text-xs italic">{{ project.tags.join(", ") }}</p>
+            </div>
+          </div>
       </NuxtLink>
     </div>
     <div @click="useRouter().push('/works')">
