@@ -77,7 +77,7 @@ defineOgImage({ url: appConfig.openGraphImage, width: 1200, height: 630, alt: 'H
           <HomeProjects />
         </div>
 
-        <Divider class="my-9" />
+        <!-- <Divider class="my-9" /> -->
 
         <!-- <HomeFaq
           style="--stagger: 6"
