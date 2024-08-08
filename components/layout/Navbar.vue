@@ -18,6 +18,7 @@ const navigation = getNavigation('home') as Record<string, Navigation>
         rounded
         transparent
         :animate="false"
+        as="div"
         class="border border-white/10"
       >
         <nav class="z-10 flex h-[50px] justify-around gap-2 p-1 transition-all duration-300 ease-in-out sm:h-[45px] sm:hover:gap-4">
