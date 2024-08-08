@@ -15,11 +15,11 @@ export default defineNuxtConfig({
   },
 
   site: {
-    url: process.env.NUXT_SITE_URL || "https://canvas.hrcd.fr",
+    url: process.env.NUXT_SITE_URL || "https://www.victorz.dev",
     identity: {
       type: "Person",
     },
-    twitter: "@HugoRCD__",
+    // twitter: "@_",
   },
 
   css: ["~/assets/style/main.css"],
