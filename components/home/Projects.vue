@@ -17,10 +17,9 @@ const { data: projects } = await useAsyncData('projects', () => queryContent('/p
         :key="project.id"
         role="link"
         class="flex cursor-pointer items-center gap-2 rounded-lg px-4 py-2 hover:bg-secondary hover:text-main"
-        :to="project.release === 'soon' ? '/' : project.link"
+        :to="`works#${project.id}`"
         :aria-label="'go to ' + project.name + ' project website'"
-        :target="project.release === 'soon' ? '_self' : '_blank'"
-      >
+        >
           <div class="flex grow flex-col">
             <div class="flex grow items-center">
               <span class="whitespace-nowrap">

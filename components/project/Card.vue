@@ -14,6 +14,7 @@ const img = useImage()
 
 <template>
   <NuxtLink
+    :id="project.id"
     :aria-label="project.name + ' project link'"
     :to="project.link"
     target="_blank"
