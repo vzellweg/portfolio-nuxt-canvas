@@ -14,7 +14,7 @@ const { data: projects } = await useAsyncData('projects', () => queryContent('/p
     <div class="flex w-full flex-col gap-4">
       <NuxtLink
         v-for="project in projects?.filter((work) => work.featured)"
-        :key="project.name"
+        :key="project.id"
         role="link"
         class="flex cursor-pointer items-center gap-2 rounded-lg px-4 py-2 hover:bg-secondary hover:text-main"
         :to="project.release === 'soon' ? '/' : project.link"
