@@ -1,5 +1,6 @@
 ---
 name: SLIDE
+id: slide
 release: 2021-2024
 image: /projects/SLIDE.jpeg
 # no link

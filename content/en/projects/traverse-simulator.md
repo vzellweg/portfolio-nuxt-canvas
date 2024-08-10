@@ -1,5 +1,6 @@
 ---
 name: Construction Surveying Simulator
+id: traverse-simulator
 release: 2023
 image: /projects/traverse-simulator.jpeg
 # no link

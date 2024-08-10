@@ -1,5 +1,6 @@
 ---
 name: Bird Identification Game
+id: bird-identification
 release: 2024
 image: /projects/bird-identification.jpeg
 link: https://demo.oregonstate.education/fw-312-bird-identification-game/#/game/wetland
