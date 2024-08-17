@@ -13,12 +13,8 @@ const img = useImage()
 </script>
 
 <template>
-  <NuxtLink
-    :id="project.id"
-    :aria-label="project.name + ' project link'"
-    :to="project.link"
-    target="_blank"
-    class="group relative flex cursor-pointer flex-col gap-1 rounded-lg border border-white/10 bg-zinc-900/80 p-1 shadow-2xl shadow-zinc-950/50 backdrop-blur-sm"
+  <div
+    class="group relative flex flex-col gap-1 rounded-lg border border-white/10 bg-zinc-900/80 p-1 shadow-2xl shadow-zinc-950/50 backdrop-blur-sm"
   >
     <div class="flex gap-1 px-1 py-[2px]">
       <div class="size-2 rounded-full bg-red-500/90 transition-all duration-300 group-hover:bg-red-500/90 sm:bg-white/10" />
@@ -67,5 +63,5 @@ const img = useImage()
         </div>
       </div>
     </div>
-  </NuxtLink>
+  </div>
 </template>
