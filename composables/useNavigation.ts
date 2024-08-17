@@ -17,7 +17,7 @@ export function getNavigation(where: Where): Record<string, Navigation> | [] {
         },
         works: {
           name: 'Works',
-          to: '/works/sampleid',
+          to: '/works',
           icon: 'i-lucide-briefcase',
         },
         // Uncomment when I have some blog content to show
