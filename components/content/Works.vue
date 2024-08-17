@@ -1,14 +1,23 @@
 <script setup lang="ts">
-const { locale } = useI18n()
+import type { Project } from "~/types/Project";
 
-const { data: projects } = await useAsyncData('projects', () => queryContent('/projects').locale(locale.value).sort({ release: -1 }).find(), {
-  watch: [locale],
-})
+const { locale } = useI18n();
+
+const { data: projects } = await useAsyncData(
+  "projects",
+  () =>
+    queryContent("/projects").locale(locale.value).sort({ release: -1 }).find(),
+  {
+    watch: [locale],
+  }
+);
 </script>
 
 <template>
   <section class="mx-auto mt-4 flex max-w-4xl flex-col p-7 sm:mt-20">
-    <h1 class="font-testimonial text-white-shadow text-center text-4xl font-bold">
+    <h1
+      class="font-testimonial text-white-shadow text-center text-4xl font-bold"
+    >
       <ContentSlot :use="$slots.title" />
     </h1>
     <h2 class="text-center text-lg font-light italic text-muted">
@@ -19,12 +28,10 @@ const { data: projects } = await useAsyncData('projects', () => queryContent('/p
       <ProjectCard
         v-for="project in projects"
         :key="project.name"
-        :project
+        :project="project as Project"
       />
     </div>
   </section>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
