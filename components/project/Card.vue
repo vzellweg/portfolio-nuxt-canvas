@@ -10,10 +10,40 @@ defineProps({
   },
 })
 const img = useImage()
+
+const cardElement = ref<HTMLElement | null>(null);
+const scrollY = ref<number>(0);
+
+const handleScroll = () => {
+  if(typeof window === 'undefined') return;
+  scrollY.value = window.scrollY;
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
+
+// Use watchEffect to automatically re-run the logic when dependencies change
+watchEffect(() => {
+  if (!cardElement.value) return; // Skip if cardElement is not yet set
+
+  const rect = cardElement.value.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+  const cardCenterY = rect.top + rect.height / 2;
+  const distanceFromCenter = Math.abs(windowHeight / 2 - cardCenterY);
+
+  // Adjust the denominator (600) to control how quickly the fade happens
+  const opacity = Math.max(0.2, 1 - distanceFromCenter / 600);
+  cardElement.value.style.opacity = `${opacity}`;
+});
 </script>
 
 <template>
-  <div :id="project.id" class="snap-center py-10">
+  <div :id="project.id" class="snap-center py-10" ref="cardElement">
     <div
       class="group relative flex flex-col gap-1 rounded-lg border border-white/10 bg-zinc-900/80 p-1 shadow-2xl shadow-zinc-950/50 backdrop-blur-sm mb-5">
       <div class="flex gap-1 px-1 py-[2px]">
