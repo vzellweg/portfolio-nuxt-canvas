@@ -78,10 +78,11 @@ const computedOpacity = computed(() => {
               <span class="whitespace-nowrap text-xs text-neutral-300 font-semibold">
                 {{ project.release === "soon" ? $t("global.soon") + "..." : project.release }}
               </span>
-              <div
+              <!-- create a link button for the project -->
+              <!-- <div
                 class="flex items-center justify-center rounded-full border border-transparent p-1 shadow-md backdrop-blur-md transition-all duration-500 group-hover:-rotate-45 group-hover:border-white/10">
                 <UIcon name="i-heroicons-arrow-right" class="size-3 text-white" />
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
