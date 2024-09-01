@@ -24,7 +24,7 @@ const { data: projects } = await useAsyncData(
       <ContentSlot :use="$slots.subtitle" />
     </h2>
     <Divider class="mb-8 mt-2" />
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <div class="grid grid-cols-1 gap-16">
       <ProjectCard
         v-for="project in projects"
         :key="project.name"
