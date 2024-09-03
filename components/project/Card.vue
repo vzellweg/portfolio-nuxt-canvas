@@ -36,10 +36,11 @@ const computedOpacity = computed(() => {
   const rect = cardElement.value.getBoundingClientRect();
   const windowHeight = window.innerHeight;
   const cardCenterY = rect.top + rect.height / 2;
-  const distanceFromCenter = Math.abs(windowHeight / 2 - cardCenterY);
+  const distanceFromCenter = Math.abs(windowHeight / 2 - cardCenterY); 
+  const distanceFromCenterRegion = Math.max(0, distanceFromCenter - windowHeight / 4);
 
   // Adjust the denominator (200) to control how quickly the fade happens
-  const opacity = Math.max(0.2, 1 - distanceFromCenter / 600);
+  const opacity = Math.max(0.2, 1 - distanceFromCenterRegion / (windowHeight / 4));
   return opacity;
 });
 </script>
