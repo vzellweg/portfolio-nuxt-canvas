@@ -17,7 +17,7 @@ const { data: projects } = await useAsyncData('projects', () => queryContent('/p
         :key="project.id"
         role="link"
         class="flex cursor-pointer items-center gap-2 rounded-lg px-4 py-2 hover:bg-secondary hover:text-main"
-        :to="`works#${project.id}`"
+        :to="{path: '/works', hash: `#${project.id}`}"
         :aria-label="'go to ' + project.name + ' project website'"
         >
           <div class="flex grow flex-col">

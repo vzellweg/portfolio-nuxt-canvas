@@ -9,6 +9,11 @@ export default defineNuxtConfig({
       mode: "out-in",
     },
   },
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth'
+    }
+  },
 
   routeRules: {
     "/": { isr: true, prerender: true },
