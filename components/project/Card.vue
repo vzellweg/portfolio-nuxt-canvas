@@ -39,16 +39,15 @@ const computedOpacity = computed(() => {
   const distanceFromCenter = Math.abs(windowHeight / 2 - cardCenterY); 
   const distanceFromCenterRegion = Math.max(0, distanceFromCenter - windowHeight / 4);
 
-  // Adjust the denominator (200) to control how quickly the fade happens
   const opacity = Math.max(0.2, 1 - distanceFromCenterRegion / (windowHeight / 4));
   return opacity;
 });
 </script>
 
 <template>
-  <div :id="project.id" class="snap-center py-10" :style="{ opacity: computedOpacity }" ref="cardElement">
+  <div :id="project.id" class="snap-center py-16" :style="{ opacity: computedOpacity }" ref="cardElement">
     <div
-      class="group relative flex flex-col gap-1 rounded-lg border border-white/10 bg-zinc-900/80 p-1 shadow-2xl shadow-zinc-950/50 backdrop-blur-sm mb-5">
+      class="group relative flex flex-col gap-1 rounded-lg border border-white/10 bg-zinc-900/80 p-1 shadow-2xl shadow-zinc-950/50 backdrop-blur-sm mb-5 2xl:mt-16">
       <div class="flex gap-1 px-1 py-[2px]">
         <div
           class="size-2 rounded-full bg-red-500/90 transition-all duration-300 group-hover:bg-red-500/90 sm:bg-white/10" />
