@@ -26,9 +26,10 @@ const { data: projects } = await useAsyncData(
     <Divider class="mb-8 mt-2" />
     <div class="grid grid-cols-1">
       <ProjectCard
-        v-for="project in projects"
+        v-for="(project, index) in projects"
         :key="project.name"
         :project="project as Project"
+        :index="index"
       />
     </div>
   </section>
