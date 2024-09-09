@@ -49,7 +49,7 @@ const computedOpacity = computed(() => {
 </script>
 
 <template>
-  <div :id="project.id" class="snap-center py-16" :style="{ opacity: computedOpacity }" ref="cardElement">
+  <div :id="project.id" class="snap-center py-4 md:py-16" :style="{ opacity: computedOpacity }" ref="cardElement">
     <div
       class="group relative flex flex-col gap-1 rounded-lg border border-white/10 bg-zinc-900/80 p-1 shadow-2xl shadow-zinc-950/50 backdrop-blur-sm mb-5" :class="{ '2xl:mt-16': index !== 0 }">
       <div class="flex gap-1 px-1 py-[2px]">
