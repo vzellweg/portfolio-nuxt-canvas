@@ -2,7 +2,7 @@
 name: Blood Pressure Measurement
 id: bloodpressure
 release: 2023
-image: /projects/blood-pressure.jpeg
+image: /projects/blood-pressure.webp
 link: https://web.oregonstate.education/bi-blood-pressure/#/
 layout: project
 featured: true

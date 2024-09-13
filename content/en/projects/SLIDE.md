@@ -2,7 +2,7 @@
 name: SLIDE
 id: slide
 release: 2021-2024
-image: /projects/SLIDE.jpeg
+image: /projects/SLIDE.webp
 # no link
 layout: project
 featured: true
