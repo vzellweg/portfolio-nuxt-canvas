@@ -129,8 +129,16 @@ only adds the in-production editing UI. Locally, just edit the files in your edi
 
 ## Setup the Open Graph Image
 
-To change the main open graph image, go to the `app.config.ts` file and change the `openGrapImage` key.
+To change the main open graph image, go to the `app.config.ts` file and change the `openGraphImage` key.
 For the blog open graph image, go to the `content/articles` directory and change the `image` key in the Markdown file of the article.
+
+Dynamic OG image URLs should be signed in local and deployed environments. Generate a secret:
+
+```bash
+npx nuxt-og-image generate-secret
+```
+
+Then set `NUXT_OG_IMAGE_SECRET` in `.env` and in the deployment environment.
 
 <!-- automd:fetch url="gh:hugorcd/markdown/main/src/contributions.md" -->
 

@@ -20,13 +20,15 @@ useHead({
 </script>
 
 <template>
-  <NuxtLayout
-    :name="layoutName"
-    :page="doc"
-  >
-    <ContentRenderer
-      v-if="doc"
-      :value="doc"
-    />
-  </NuxtLayout>
+  <div :key="route.fullPath">
+    <NuxtLayout
+      :name="layoutName"
+      :page="doc"
+    >
+      <ContentRenderer
+        v-if="doc"
+        :value="doc"
+      />
+    </NuxtLayout>
+  </div>
 </template>

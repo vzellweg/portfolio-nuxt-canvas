@@ -32,15 +32,14 @@ onUnmounted(() => {
 })
 
 const computedOpacity = computed(() => {
-  // log is necesarry to trigger the reactivity, possibly having to do with the fact that its listening to `window`
-  // TODO: find a more elegant solution
-  console.log(Math.trunc(scrollY.value / 100))
-  if (!cardElement.value) return 1
+  const currentScrollY = scrollY.value
+  if (!cardElement.value || typeof window === 'undefined') return 1
 
   const rect = cardElement.value.getBoundingClientRect()
   const windowHeight = window.innerHeight
-  const cardCenterY = rect.top + rect.height / 2
-  const distanceFromCenter = Math.abs(windowHeight / 2 - cardCenterY)
+  const viewportCenterY = currentScrollY + windowHeight / 2
+  const cardCenterY = currentScrollY + rect.top + rect.height / 2
+  const distanceFromCenter = Math.abs(viewportCenterY - cardCenterY)
   const distanceFromCenterRegion = Math.max(0, distanceFromCenter - windowHeight / 4)
 
   const opacity = Math.max(0.2, 1 - distanceFromCenterRegion / (windowHeight / 4))
