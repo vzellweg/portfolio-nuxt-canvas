@@ -1,0 +1,136 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@import "themes/dark.css";
+@import "animation.css";
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-testimonial: "Testimonial", sans-serif;
+  --font-geist: "Geist", sans-serif;
+
+  /* Custom white glow used by the navbar (overrides the built-in text-shadow-sm) */
+  --text-shadow-sm: 1px 1px 12px rgb(255 255 255 / 0.35);
+}
+
+/*
+  Theme colors are driven by CSS variables defined in themes/dark.css.
+  They are declared as explicit utilities (rather than @theme color tokens)
+  because `main` maps to different values for text vs. background.
+*/
+@utility text-main {
+  color: var(--font-primary);
+}
+@utility text-muted {
+  color: var(--font-muted);
+}
+@utility text-placeholder {
+  color: var(--font-placeholder);
+}
+@utility text-inverted {
+  color: var(--font-inverted);
+}
+
+@utility bg-main {
+  background-color: var(--bg-main);
+}
+@utility bg-secondary {
+  background-color: var(--bg-secondary);
+}
+@utility bg-card {
+  background-color: var(--bg-card);
+}
+@utility bg-muted {
+  background-color: var(--font-muted);
+}
+
+@utility border-primary {
+  border-color: var(--border-primary);
+}
+@utility border-primary-hover {
+  border-color: var(--border-primary-hover);
+}
+@utility border-muted {
+  border-color: var(--border-muted);
+}
+
+/* Faint grid backdrop used on the home hero (white lines at 10% opacity, 4rem cells) */
+@utility bg-grid-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%20stroke='rgba(255,255,255,0.1)'%20fill='none'%3E%3Cpath%20d='M64%200H0V64'/%3E%3C/svg%3E");
+  background-size: 4rem 4rem;
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/geist.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Testimonial";
+  src: url("/fonts/testimonial.otf") format("opentype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html, body, #__nuxt, #__layout {
+    height: 100% !important;
+    width: 100% !important;
+    font-family: var(--font-geist);
+
+    ::-webkit-scrollbar {
+      width: 0.5rem;
+      padding: 0.5rem;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-secondary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--bg-card);
+      border-radius: 0.5rem;
+    }
+  }
+}
+
+@layer components {
+  .linebreak {
+    position: relative;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    width: 100%;
+    height: 1px;
+    margin: 0 auto;
+    background-image: linear-gradient(96.18deg, rgba(215, 196, 255, 0) 10%, rgba(200, 200, 200, 0.24) 50%, rgba(215, 196, 255, 0) 90%);
+  }
+
+  .text-white-shadow {
+    text-shadow: 0 4px 10px rgba(0, 87, 255, .2), 0 -4px 10px rgba(255, 90, 0, .15), 0 0 30px rgba(255, 255, 255, .2);
+  }
+
+  .white-gradient {
+    @apply bg-gradient-to-b from-white/25 to-white bg-clip-text text-lg font-medium text-transparent
+  }
+}
+
+.writing {
+  @apply prose antialiased font-geist text-gray-700/90 dark:text-gray-400/80 leading-relaxed;
+  @apply prose-h1:text-2xl prose-h1:mb-0 sm:prose-h1:text-3xl prose-h1:text-zinc-900 dark:prose-h1:text-zinc-100 prose-h1:italic prose-h1:font-[600];
+  @apply prose-h2:text-xl sm:prose-h2:text-2xl prose-h2:text-zinc-900 dark:prose-h2:text-zinc-100;
+  @apply prose-h3:text-lg sm:prose-h3:text-xl prose-h3:text-zinc-900 dark:prose-h3:text-zinc-100;
+  @apply prose-h4:text-base sm:prose-h4:text-lg prose-h4:text-zinc-900 dark:prose-h4:text-zinc-100;
+  @apply prose-h5:text-base prose-h5:text-zinc-900 dark:prose-h5:text-zinc-100;
+  @apply prose-a:text-blue-500 dark:prose-a:text-blue-500 prose-a:underline;
+  @apply prose-pre:text-sm sm:prose-pre:text-base prose-pre:text-zinc-900 dark:prose-pre:text-zinc-100;
+  @apply prose-code:text-zinc-900 dark:prose-code:text-zinc-100;
+  @apply prose-strong:text-gray-900 dark:prose-strong:text-gray-100 prose-strong:font-[500];
+  @apply prose-p:m-0;
+}

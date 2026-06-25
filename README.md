@@ -25,8 +25,8 @@ You can see a live demo at [canvas.hrcd.fr](https://canvas.hrcd.fr/).
 
 ## Features
 
-- Fully [Nuxt Content](https://content.nuxt.com/) driven with the content driven mode on
-- Full and simple [Nuxt Studio](https://nuxt.studio/) editor support
+- Fully [Nuxt Content v3](https://content.nuxt.com/) driven (collections + `queryCollection`)
+- Self-hosted [Nuxt Studio](https://nuxt.studio/) editor support (the `nuxt-studio` module)
 - Built-in Awesome Component & Layout
 - [NuxtUI](https://ui.nuxt.com/) for some UI components
 - [Tailwind CSS](https://tailwindcss.com/)
@@ -104,10 +104,41 @@ This portfolio uses [Resend](https://resend.com/) to handle the contact form. To
 - change the `from` key in the `sendEmail` route in the `server/api/` folder, you can customize everything you want in this route
 - That's it, you're good to go!
 
+## Content editing (Nuxt Studio) & deployment
+
+As of 2026, Nuxt Studio is a free, open-source module that runs **inside this app** (the
+old hosted `studio.nuxt.com` platform and the `@nuxthq/studio` module are retired). The editor
+is therefore deployed together with the site — there is no separate editor deployment.
+
+The repository to commit to is configured in `nuxt.config.ts` under `studio.repository`. To enable
+editing/publishing from the deployed site:
+
+1. **Deploy with SSR.** Studio needs a server route for authentication, so the site must be deployed
+   with `nuxt build` to an SSR-capable host (Vercel, the current target, works out of the box). A
+   purely static `nuxt generate` build cannot serve the editor.
+2. **Create a GitHub OAuth app** (Settings → Developer settings → OAuth Apps). Set the callback URL to
+   `https://<your-domain>/_studio` (and `http://localhost:3000/_studio` for local testing).
+3. **Add the OAuth credentials** as environment variables on the host:
+   - `STUDIO_GITHUB_CLIENT_ID`
+   - `STUDIO_GITHUB_CLIENT_SECRET`
+4. **Open `/_studio`** on the deployed site and sign in. Edits are committed back to the configured
+   GitHub repository/branch; your normal CI/CD then redeploys.
+
+Markdown/JSON content under `content/` still builds and serves normally regardless of Studio — Studio
+only adds the in-production editing UI. Locally, just edit the files in your editor.
+
 ## Setup the Open Graph Image
 
-To change the main open graph image, go to the `app.config.ts` file and change the `openGrapImage` key.
+To change the main open graph image, go to the `app.config.ts` file and change the `openGraphImage` key.
 For the blog open graph image, go to the `content/articles` directory and change the `image` key in the Markdown file of the article.
+
+Dynamic OG image URLs should be signed in local and deployed environments. Generate a secret:
+
+```bash
+npx nuxt-og-image generate-secret
+```
+
+Then set `NUXT_OG_IMAGE_SECRET` in `.env` and in the deployment environment.
 
 <!-- automd:fetch url="gh:hugorcd/markdown/main/src/contributions.md" -->
 

@@ -2,10 +2,10 @@ import { Resend } from 'resend'
 import type { H3Event } from 'h3'
 import type { ContactEmail } from '~/types/ContactEmail'
 
-const resend = new Resend(process.env.NUXT_PRIVATE_RESEND_API_KEY)
-
 export default defineEventHandler(async (event: H3Event) => {
   try {
+    const { resendApiKey } = useRuntimeConfig(event)
+    const resend = new Resend(resendApiKey)
     const body = (await readBody(event)) as ContactEmail
     const { email, subject, message, phone, fullname } = body
     return await resend.emails.send({
