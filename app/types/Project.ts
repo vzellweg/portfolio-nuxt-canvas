@@ -1,6 +1,7 @@
 export type Project = {
   path: string
   id: string
+  anchor?: string
   name: string
   release: string
   image: string

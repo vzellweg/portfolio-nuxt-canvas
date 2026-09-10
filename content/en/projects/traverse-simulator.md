@@ -1,13 +1,13 @@
 ---
-name: Construction Surveying Simulator
-id: traverse
-release: 2023
-image: /projects/traverse-simulator.webp
-# no link
-# link
+name: Surveying Simulations
+id: surveying-simulations
+anchor: surveying-simulations
+release: 2023-2025
+image: /projects/surveying-simulations.jpg
+link: https://demo.oregonstate.education/ce-365-simple-curve-lab/#/
 layout: project
 featured: true
 tags: ["Three.js", "Blender", "Vue.js", "GSAP", "PTGui"]
 role: "Lead Developer"
-description:  This 3d construction surveying interactive simulates the process of creating a traverse network on OSU's McNary field. The goal of this project is to provide a virtual alternative to an in-person activity performed at the on-campus field.
+description: A series of browser-based surveying simulations for civil engineering courses, including traverse network and simple-curve field activities. These projects translate on-campus measurement workflows into guided online experiences with panoramic field media, simulated instruments, calculations, and accessible task flow.
 ---

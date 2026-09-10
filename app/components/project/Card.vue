@@ -49,7 +49,7 @@ const computedOpacity = computed(() => {
 
 <template>
   <div
-    :id="project.id"
+    :id="project.anchor || project.id"
     ref="cardElement"
     class="snap-center py-4 md:py-16"
     :style="{ opacity: computedOpacity }"
@@ -114,5 +114,21 @@ const computedOpacity = computed(() => {
       </div>
     </div>
     <p>{{ project.description }}</p>
+    <NuxtLink
+      v-if="project.link"
+      :to="project.link"
+      target="_blank"
+      rel="noreferrer"
+      external
+      class="mt-4 inline-flex w-fit items-center gap-2 rounded-md border border-white/10 px-3 py-2 text-sm font-semibold text-white/90 transition-colors duration-200 hover:border-white/30 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/40"
+      :aria-label="'open ' + project.name + ' project'"
+    >
+      Open project
+      <UIcon
+        name="i-lucide-external-link"
+        class="size-4"
+        aria-hidden="true"
+      />
+    </NuxtLink>
   </div>
 </template>
