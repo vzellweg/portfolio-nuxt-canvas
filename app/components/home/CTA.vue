@@ -6,7 +6,7 @@
     <div class="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-2">
       <UTooltip
         :text="$t('global.email')"
-        :shortcuts="['⌘', 'O']"
+        :kbds="['meta', 'o']"
       >
         <SpotlightButton>
           <NuxtLink

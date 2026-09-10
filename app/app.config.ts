@@ -1,13 +1,13 @@
 export default defineAppConfig({
-  appName: 'Victor Z Software Engineer',
+  appName: 'Victor Zellweger | Software Engineer',
   appDescription:
-    'Portfolio for Victor Zellweger, created from the Canvas template built by HugoRCD',
+    'Accessible AI tools, 3D web simulations, and full-stack TypeScript projects by Victor Zellweger.',
   profilePicture: '/assets/vz-headshot-linkedin.jpeg',
   footerName: 'VictorZ',
   email: 'vazellweg@gmail.com',
   // twitterUsername: '@',
   phone: '(+1) 206 450 5471',
-  openGraphImage: 'https://canvas.hrcd.fr/social-preview.jpg',
+  openGraphImage: 'https://victorz.dev/projects/accessible-inaturalist.jpg',
   socials: {
     github: 'https://github.com/vzellweg',
     linkedin: 'https://www.linkedin.com/in/vzellweg/',

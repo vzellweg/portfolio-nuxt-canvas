@@ -1,12 +1,13 @@
 ---
 name: LabShell
 id: labshell
+anchor: labshell
 release: 2021-2024
 image: /projects/labshell.webp
 # no link
 layout: project
-featured: true
+featured: false
 tags: ["React", "Redux", "Serverless", "TypeScript"]
 role: "Developer"
-description: Labshell is an online interactive platform used to simulate in-person labs, allowing students who are part of Oregon State Ecampus to perform the labs required for their degree from a remote setting. This platform hosts over 1000 active users and currently offers 30 different Chemistry labs.
+description: LabShell is an online interactive platform for simulating in-person chemistry labs, allowing Oregon State Ecampus students to complete required lab work remotely. I helped maintain and improve the platform as it supported more than 1,000 active users across 30 chemistry labs.
 ---

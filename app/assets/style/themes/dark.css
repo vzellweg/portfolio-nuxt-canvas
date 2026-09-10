@@ -1,4 +1,12 @@
 html.dark {
+  /*
+    Nuxt UI v4 paints `body` with --ui-bg (neutral-900 by default). Align it with
+    the html `bg-zinc-950` so the body's collapsed top margin doesn't reveal a
+    darker band behind the fixed navbar.
+  */
+  --ui-bg: var(--color-zinc-950);
+  --ui-text: var(--font-primary);
+
   --bg-main: #131313;
   --bg-main-opacity: 12, 12, 13;
   --bg-secondary: #282828;

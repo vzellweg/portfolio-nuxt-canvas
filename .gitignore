@@ -23,3 +23,5 @@ logs
 .vercel
 
 rt_base
+# Browser automation artifacts
+.playwright-mcp

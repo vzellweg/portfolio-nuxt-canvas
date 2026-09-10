@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import type { Stack } from '~/data/stack'
+
+type Stack = {
+  name: string
+  logo: string
+  link?: string
+}
 
 defineProps({
   item: {
