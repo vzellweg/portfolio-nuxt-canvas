@@ -53,7 +53,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterSite: appConfig.twitterUsername,
   twitterCreator: appConfig.twitterUsername,
-  twitterImage: 'https://hrcd.fr/social-preview.jpg',
+  twitterImage: appConfig.openGraphImage,
 })
 
 defineShortcuts({

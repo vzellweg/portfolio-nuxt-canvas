@@ -104,41 +104,43 @@ This portfolio uses [Resend](https://resend.com/) to handle the contact form. To
 - change the `from` key in the `sendEmail` route in the `server/api/` folder, you can customize everything you want in this route
 - That's it, you're good to go!
 
-## Content editing (Nuxt Studio) & deployment
+## Content editing (Nuxt Studio)
 
-As of 2026, Nuxt Studio is a free, open-source module that runs **inside this app** (the
-old hosted `studio.nuxt.com` platform and the `@nuxthq/studio` module are retired). The editor
-is therefore deployed together with the site — there is no separate editor deployment.
+[Nuxt Studio](https://nuxt.studio/) is now a free, self-hosted module (`nuxt-studio`) that runs
+inside this app. The old hosted `studio.nuxt.com` platform, the `@nuxthq/studio` module, and the
+GitHub Pages `studio.yml` workflow are retired and have been removed.
 
-The repository to commit to is configured in `nuxt.config.ts` under `studio.repository`. To enable
-editing/publishing from the deployed site:
+- **Locally** no setup is needed: run `bun dev` and use the "Edit this page" button (bottom-left).
+  Changes are written straight to the files under `content/`.
+- **In production** the editor lives at `/_studio` on the deployed site and commits to the GitHub
+  repository configured under `studio.repository` in `nuxt.config.ts`. It needs the one-time setup
+  below; until then `/_studio` answers "No authentication provider found".
 
-1. **Deploy with SSR.** Studio needs a server route for authentication, so the site must be deployed
-   with `nuxt build` to an SSR-capable host (Vercel, the current target, works out of the box). A
-   purely static `nuxt generate` build cannot serve the editor.
-2. **Create a GitHub OAuth app** (Settings → Developer settings → OAuth Apps). Set the callback URL to
-   `https://<your-domain>/_studio` (and `http://localhost:3000/_studio` for local testing).
-3. **Add the OAuth credentials** as environment variables on the host:
+### One-time production setup
+
+1. Create a GitHub OAuth app at <https://github.com/settings/developers> → *OAuth Apps* → *New OAuth App*:
+   - Homepage URL: `https://www.victorz.dev`
+   - Authorization callback URL: `https://www.victorz.dev/__nuxt_studio/auth/github`
+2. Copy the Client ID and generate a Client Secret.
+3. In Vercel → Project → *Settings* → *Environment Variables*, add (Production only is enough):
    - `STUDIO_GITHUB_CLIENT_ID`
    - `STUDIO_GITHUB_CLIENT_SECRET`
-4. **Open `/_studio`** on the deployed site and sign in. Edits are committed back to the configured
-   GitHub repository/branch; your normal CI/CD then redeploys.
+   - `STUDIO_GITHUB_MODERATORS` (optional, recommended): comma-separated list of GitHub account
+     emails allowed to sign in, e.g. your own. Without it any GitHub user can log in, although only
+     users with write access to the repo can publish.
+4. Redeploy, open <https://www.victorz.dev/_studio>, and sign in with GitHub.
 
-Markdown/JSON content under `content/` still builds and serves normally regardless of Studio — Studio
-only adds the in-production editing UI. Locally, just edit the files in your editor.
+Publishing from Studio creates commits on `main`; Vercel then redeploys the site as usual. The
+site must stay an SSR deployment (`nuxt build`, which is what Vercel runs) because Studio needs
+server routes for authentication.
 
 ## Setup the Open Graph Image
 
 To change the main open graph image, go to the `app.config.ts` file and change the `openGraphImage` key.
 For the blog open graph image, go to the `content/articles` directory and change the `image` key in the Markdown file of the article.
 
-Dynamic OG image URLs should be signed in local and deployed environments. Generate a secret:
-
-```bash
-npx nuxt-og-image generate-secret
-```
-
-Then set `NUXT_OG_IMAGE_SECRET` in `.env` and in the deployment environment.
+Dynamic OG image generation is disabled (`ogImage.zeroRuntime` in `nuxt.config.ts`), so no
+`NUXT_OG_IMAGE_SECRET` is needed; the static image above is used for every page.
 
 <!-- automd:fetch url="gh:hugorcd/markdown/main/src/contributions.md" -->
 

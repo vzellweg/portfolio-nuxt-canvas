@@ -127,6 +127,13 @@ export default defineNuxtConfig({
     },
   },
 
+  // The site uses one static Open Graph image (app.config `openGraphImage`), so
+  // dynamic OG generation is disabled. This also removes the NUXT_OG_IMAGE_SECRET
+  // requirement and the "URLs are not signed" warning.
+  ogImage: {
+    zeroRuntime: true,
+  },
+
   // Self-hosted Nuxt Studio. Editing/publishing in production requires GitHub
   // OAuth credentials (STUDIO_GITHUB_CLIENT_ID / STUDIO_GITHUB_CLIENT_SECRET)
   // and an SSR deployment. See README "Content editing (Nuxt Studio)".
