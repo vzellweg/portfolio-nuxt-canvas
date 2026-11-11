@@ -3,6 +3,7 @@ name: Pacific Islands Map Suite
 id: es260-map-suite
 anchor: es260-map-suite
 release: 2026
+date: 2026-10-06
 image: /projects/es260-map-suite.jpg
 link: https://demo.oregonstate.education/es-260-our-sea-of-islands-map/#/
 layout: project

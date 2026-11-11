@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { data: projects } = await useAsyncData('home-projects', () =>
-  queryCollection('projects').order('release', 'DESC').all(),
+  queryCollection('projects').order('release', 'DESC').order('date', 'DESC').all(),
 )
 </script>
 

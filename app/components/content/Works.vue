@@ -2,7 +2,7 @@
 import type { Project } from '~/types/Project'
 
 const { data: projects } = await useAsyncData('works-projects', () =>
-  queryCollection('projects').order('release', 'DESC').all(),
+  queryCollection('projects').order('release', 'DESC').order('date', 'DESC').all(),
 )
 </script>
 
