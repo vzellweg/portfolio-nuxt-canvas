@@ -5,6 +5,8 @@ const projectSchema = z.object({
   id: z.string(),
   anchor: z.string().optional(),
   release: z.string(),
+  // Latest ship date (YYYY-MM-DD); breaks ties within a release year
+  date: z.string().optional(),
   image: z.string(),
   description: z.string(),
   role: z.string(),

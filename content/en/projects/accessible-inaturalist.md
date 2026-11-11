@@ -3,6 +3,7 @@ name: Accessible iNaturalist
 id: accessible-inaturalist
 anchor: accessible-inaturalist
 release: 2026
+date: 2026-11-10
 image: /projects/accessible-inaturalist.jpg
 layout: project
 featured: true

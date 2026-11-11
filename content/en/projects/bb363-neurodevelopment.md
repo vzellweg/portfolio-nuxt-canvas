@@ -3,7 +3,9 @@ name: Neurodevelopment 3D Sim
 id: bb363-neurodevelopment
 anchor: bb363-neurodevelopment
 release: 2026
+date: 2026-10-06
 image: /projects/bb363-neurodevelopment.jpg
+link: https://demo.oregonstate.education/bb-363-neurodevelopment-sim/
 layout: project
 featured: true
 tags: ["Three.js", "Blender", "Vue.js", "Nuxt UI"]
