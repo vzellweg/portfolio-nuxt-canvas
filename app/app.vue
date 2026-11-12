@@ -70,7 +70,7 @@ defineShortcuts({
 <template>
   <Html
     :lang="locale"
-    class="bg-zinc-950 text-main font-geist transition-colors duration-300 selection:bg-white/60 selection:text-zinc-800 snap-proximity snap-y"
+    class="bg-zinc-950 text-main font-geist transition-colors duration-300 selection:bg-white/60 selection:text-zinc-800"
   >
     <Body>
       <UApp>

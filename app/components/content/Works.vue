@@ -7,7 +7,6 @@ const { data: projects } = await useAsyncData('works-projects', () =>
 </script>
 
 <template>
-  <div class="snap-center" />
   <section class="mx-auto mt-4 flex max-w-4xl flex-col p-7 sm:mt-20">
     <h1
       class="font-testimonial text-white-shadow text-center text-4xl font-bold"
