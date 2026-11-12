@@ -14,48 +14,15 @@ defineProps({
   },
 })
 const img = useImage()
-
-const cardElement = ref<HTMLElement | null>(null)
-const scrollY = ref(0)
-
-const handleScroll = () => {
-  if (typeof window === 'undefined') return
-  scrollY.value = window.scrollY
-}
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
-})
-
-const computedOpacity = computed(() => {
-  const currentScrollY = scrollY.value
-  if (!cardElement.value || typeof window === 'undefined') return 1
-
-  const rect = cardElement.value.getBoundingClientRect()
-  const windowHeight = window.innerHeight
-  const viewportCenterY = currentScrollY + windowHeight / 2
-  const cardCenterY = currentScrollY + rect.top + rect.height / 2
-  const distanceFromCenter = Math.abs(viewportCenterY - cardCenterY)
-  const distanceFromCenterRegion = Math.max(0, distanceFromCenter - windowHeight / 4)
-
-  const opacity = Math.max(0.2, 1 - distanceFromCenterRegion / (windowHeight / 4))
-  return opacity
-})
 </script>
 
 <template>
   <div
     :id="project.anchor || project.id"
-    ref="cardElement"
-    class="snap-center py-4 md:py-16"
-    :style="{ opacity: computedOpacity }"
+    class="scroll-mt-[max(1rem,calc(50vh-22rem))] py-4 md:py-16"
   >
     <div
-      class="group relative flex flex-col gap-1 rounded-lg border border-white/10 bg-zinc-900/80 p-1 shadow-2xl shadow-zinc-950/50 backdrop-blur-sm mb-5"
+      class="group relative flex flex-col gap-1 rounded-lg border border-white/10 bg-zinc-900/80 transition-colors duration-700 in-target:border-white/40 p-1 shadow-2xl shadow-zinc-950/50 backdrop-blur-sm mb-5"
       :class="{ '2xl:mt-16': index !== 0 }"
     >
       <div class="flex gap-1 px-1 py-[2px]">
